@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        var greet = function (firstName, lastName, language) {
+            language = language || 'en';//default to english if language is empty.
+            if (language === 'en') {
+                console.log('Hello ' + firstName + ' ' + lastName);
+            }
+            if (language === 'es') {
+                console.log('Hola ' + firstName + ' ' + lastName);
+            }
+        }
+
+        var greetEnglish = function(firstName,lastName){
+            greet(firstName, lastName, 'en');
+        }
+        var greetSpanish = function (firstName, lastName) {
+            greet(firstNamem, lastName, 'es');
+        }
+
+        greetEnglish('bob', 'marley'); //hello bob marley
+    </script>
+</body>
+</html>

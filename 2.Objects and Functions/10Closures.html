@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        function makeGreeting(language) {
+            return function (firstName, lastName) {
+                if (language === 'en') {
+                    console.log('Hello' + firstName + ' ' + lastName);
+                }
+                if (language === 'es') {
+                    console.log('Hola' + firstName + ' ' + lastName);
+                }
+            }
+        }
+        // when greetEnglish will be invoked it will have refrence to the variable in the makeGreeting('en') execution context (that already ended)
+        var greetEnglish = makeGreeting('en');
+        //// when greetSpanish will be invoked it will have refrence to the variable in the makeGreeting('es') execution context (that already ended)
+        var greetSpanish = makeGreeting('es');
+
+        greetEnglish('don', 'koko'); //hello don koko
+        greetSpanish('don', 'koko'); //hola don koko
+    </script>
+</body>
+</html>

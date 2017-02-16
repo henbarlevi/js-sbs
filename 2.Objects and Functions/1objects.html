@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        var person = new Object();
+        //var person = {};
+
+        person['firstName'] = 'Tony';
+        person.lastName = 'Montana';
+        console.log(person['firstName']); // tony
+
+        person.address = new Object(); // object inside object
+        person.address.street = '111 main steet';
+
+        person["address"]["city"] = 'New York';
+        console.log(person.address.city); // new York
+    </script>
+</body>
+</html>

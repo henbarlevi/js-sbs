@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        var person  ={
+            firstName: 'Tony',
+            lastName: 'montana',
+            city: 'new york'
+        }
+        //same as
+        var person2 = new Object();
+        person2.firstName = 'tony';
+        person2.lastName = 'montana';
+        person2.city = 'new york';
+
+        var greet = function (person) {
+            console.log('hi my name is ' +person.firstName)
+        }
+        greet(person); // print hi my name is tony
+        //can also create object on the fly:
+        greet({ firstName: 'koko', lastName: 'shmoko' }); 
+
+    </script>
+</body>
+</html>

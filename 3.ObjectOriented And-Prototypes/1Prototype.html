@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        //all objects in js (include function)  have a prototype property
+        //(except the base 'object' - because that is the base prototype of all objects )
+        var person = {
+            firstName: 'Default',
+            lastName: 'Default',
+            getFullName: function () {
+                return this.firstName + ' ' + this.lastName;
+            }
+        }
+
+        var john = {
+            firstName: 'john',
+            lastName: 'Doe'
+        }
+        //dont Ever DO THIS. FOR DEMO PURPOSES ONLY ! :
+        john.__proto__ = person;
+        // print  john doe:
+        console.log(john.getFullName()); // the execution context when he create -this- will know what object originally called the function
+       
+        //-------REFLECTION:
+        //print all props and values include those of the prototype:
+        for (var prop in john) {
+            console.log(prop + ': ' + john[prop]);
+
+        }
+        //not include of prototype:
+        for (var prop in john) {
+            if (john.hasOwnProperty(prop)) {
+                console.log(prop + ': ' + john[prop]);
+            }
+
+        }
+        //--------Extend:
+        var jane = {
+            address: '111 main St.',
+            getFormalFullName: function () {
+                return this.lastName + ' ,' + this.firstName;
+            }
+        }
+        var jim = {
+            getFirstMa, e: function () {
+                return firstName;
+            }
+        }
+        //you need a underScore library ref for this:
+        //_.extend ( john,jane,jim) //will copy all props and methods to john
+    </script>
+</body>
+</html>

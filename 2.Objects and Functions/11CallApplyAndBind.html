@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        //call apply and bind are functions that all functions have
+        //---------------------------------------------
+        //bind:
+        var person = {
+            firstName: 'jhon',
+            lastName: 'Doe',
+            getFullName: function () {
+                var fullName = this.firstName + ' ' + this.lastName; //here this = person
+                return fullName;
+            }
+        }
+
+        var logName = function (lang1, lang2) {
+            console.log('Logged' + this.getFullName()); //here this = window , so if we invoke it will be an error
+        }
+        //so how do we use the function logName and make -this- what we want it to be:
+        var logPersonName = logName.bind(person); //bind make a new copy of the function and make the 'this' in the function to be what we enter as an argument (person)
+        logPersonName(); //return 'john doe'
+
+        //we can also use imddiet invocation with bind:
+        var logName2 = function (lang1, lang2) {
+            console.log('Logged' + this.getFullName());
+        }.bind(person);
+        logName2(); //return 'john doe'
+        //--------------------------------------------
+        //call:
+        //execute the function and make -this- what we enter as argument (not returning a copy like the bind function)
+        logName.call(person); //return 'john doe'
+        //-------------------------------------------
+        //apply:
+        //just like call but accepting array of arguments:
+        logName.call(person, 'en', 'es');
+        logName.apply(person, ['en', 'es']);
+        //function borrowing
+        var person2 = {
+            firstName: 'Jane',
+            lastName: 'Doe'
+        }
+
+
+        // using function of person to person2 
+        person.getFullName.apply(person2); // return 'jane doe'
+        //----------function currying---------
+
+        function multiply(a, b) {
+            return a * b;
+        }
+        var multipleByTwo = multiply.bind(this, 2); // make copy of multiply function but a always will be 2
+        console.log(multipleByTwo(4)); // 8
+    </script>
+</body>
+</html>

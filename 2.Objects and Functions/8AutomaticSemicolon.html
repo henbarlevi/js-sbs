@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        var getPerson = function () {
+            return //automatic semicolon ;
+            {
+                firstNAme: 'tony'
+
+            }
+        }
+        console.log(getPerson); //undefiend
+
+        //how to avoid:
+        var getPerson2 = function () {
+            return { //putting the bracket in the same line 
+                firstName: 'bob'
+            }
+        }
+        console.log(getPerson2) // the object with firstName: 'bob'
+    </script>
+</body>
+</html>

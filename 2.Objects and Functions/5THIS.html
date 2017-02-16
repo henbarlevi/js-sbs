@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+<script>
+    
+    console.log(this); // window
+    function a() {
+        console.log(this) 
+    }
+    a(); // this = window
+    var b = function () {
+        console.log(this);
+    }
+    b(); //this = window
+    //event though a() and b() creating new execiton context
+    //which means each execution context get its own 'this' but it still pointing to the same address - global object (window)
+    //-----------------------
+    var person = {
+        firsName: 'Tony',
+        log: function () {
+            console.log(this);
+        }
+    }
+    person.log(); // this = person 
+    //----- weird case and how to fix it-----------------
+    var person2 = {
+        firsName: 'koko',
+        log: function () {
+            console.log(this);
+            var setName = function (newNAme) {
+                this.firsName = newNAme; // this = window - therefore name of preson2 will not be updated
+            }
+        }
+    }
+    person.log();
+    //pattern how to handle:
+    var person3 = {
+        firsName: 'koko',
+        log: function () {
+            var self = this;
+            console.log(self);
+            var setName = function (newNAme) {
+                self.name = newNAme; //will try to finde self in the execution context - wont find it - then find it in the outer einvorment
+            }
+        }
+    }
+
+    //*** look at 11CallApplyAndBind to know more ways to control -this-
+</script>
+</body>
+</html>

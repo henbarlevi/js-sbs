@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <script>
+ //where function sits physically detements its outer einviorment refrence
+        function a() {
+            var myVar = 2;
+            b();
+        }
+        function b() {
+            console.log(myVar);
+            //will print 1, because myVar doesnt exist in b execution context the js engine
+            //will try to find it in the global execution context even though the function a called the function b
+            //and that is because it is trying to find myVar in the outer Einviorment which is global
+            //notice that function a,b are actually in the same scope level
+        }
+        var myVar = 1;
+        a();
+        //-------------------------------------
+        function c() {
+            var myVar = 2;
+            d();
+            function d() {
+                console.log(myVar);
+                //will print 2, vause the outer einviorment of d is c
+            }
+        }
+        var myVar = 1;
+        c();
+    </script>
+</body>
+</html>

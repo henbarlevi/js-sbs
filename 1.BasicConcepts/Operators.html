@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        var a = 2;
+        var b = 3;
+        var c = 4;
+        a = b = c;
+
+        // the operator = returns a value of the right side
+        //so b=c return 4 , so a=4
+        console.log(a); //4
+        console.log(b); //4
+        console.log(c); //4
+        //coercion:
+        console.log(1 + '2'); // 12 - convert 1 to '1'
+        //comparison:
+        console.log(3 < 2 < 1); // true - left to right - 3<2 return false (false convert to 0 ) - 0<1 return true
+        // 3==3 - true
+        //'3'==3 - true
+        // false == 0 - true
+        // null == 0 - false (though null is convert to 0)
+        // null < 1 - true
+        // "" == 0 - true
+        // "" == false  - true
+        //-------------- === - compare but doesnt try to convert the values--------------------------------------
+        // 3===3 - true
+        // '3'===3 - false
+        //-----------------------------------------------------------------------------------------------------
+        //existence and booleans:
+        // Boolean(NaN/null/undefiend/""/0) = false
+        var a = null;
+        if (a)//false
+        {
+            console.log('something is there');
+        }
+        a = 0;
+        if (a || a === 0) { //true
+            console.log('something is there');
+        }
+        //-----------------------------Default Values--------------------------------------------------------
+        var greet = function (name) {
+            console.log('Hello' + name);
+        }
+        greet(); // name = undefiend - because of the operator + name(=undefined) will be converted to string 'undifiend'
+        // so will print : hello undefiend 
+
+        var greetFixed = function (name) {
+            name = name || 'default name';
+            console.log('hello' + name);
+        }
+
+        greetFixed(); // the || operator will return the first value that can be converted to true
+        // so name || 'default name'  - name convert to false, 'default name' convert to true so
+        //it will return 'default name' and function will print 'hello default name'
+        //0||1 - return true , 'hi' || 0  - return 'hi', 1 || 'hi' -return 1
+    </script>
+</body>
+</html>

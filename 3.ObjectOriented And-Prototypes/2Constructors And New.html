@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        //new as an operator, an empty object is created
+        
+        function Person() {
+            this.firstName = 'john';
+            this.lastName = 'doe';
+        }
+
+        var john = new Person(); //word 'new' create a new empty object and call person function when the -this- variable pointing to that empty object, and that object returned from the function automatically.
+        console.log(john);
+    </script>
+</body>
+</html> 

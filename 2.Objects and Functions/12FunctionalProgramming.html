@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        var arr = [1, 2, 3];
+        //multi each item by 2 to new arr:
+        //way 1:
+        var arr2 = [];
+        for (var i = 0; i < arr.length; i++) {
+            arr2.push(arr[i] * 2);
+        }
+        console.log(arr2); // [2,4,6]
+        //way 2 - functional programming:
+        function mapForEach(arr, fn) {
+            var newArr = [];
+            for (var i = 0; i < arr.length; i++) {
+                newArr.push(
+                    fn(arr[i])
+                    );
+            };
+            return newArr;
+        }
+        var arr3 = mapForEach(arr, function (item) {
+            return item * 2
+        });
+        console.log(arr3); // [2,4,6]
+        //limiter function - return true/false
+        var checkPastLimit = function (limiter, item) {
+            return item > limiter;
+        }
+        
+        var checkPastLimitSimplified = function (limiter) {
+            return (function (limiter, item) {
+                return item > limiter;
+            }).bind(this, limiter);
+        }// when we will use checkPastLimitSimplified, it will create for us a function just like checkPastLimit but with a preset value 
+        
+        checkIfItemsBiggerThanTwo = checkPastLimitSimplified(2); //getting a function that check if the item bigger than 2
+        
+        var arr4= mapForEach(arr, checkIfItemsBiggerThanTwo); // [false,false,true]
+        console.log(arr4);// print [false,false,true]
+    </script>
+</body>
+</html>

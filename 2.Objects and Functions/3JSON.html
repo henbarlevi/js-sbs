@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        var person = { firstName: 'koko', lastName: 'manga' };
+       var jsonFormat = JSON.stringify(person); //convert to json format
+       var objectFromJson = JSON.parse(jsonFormat); //convert from json to object
+       console.log(objectFromJson.firstName); // koko
+    </script>
+</body>
+</html>

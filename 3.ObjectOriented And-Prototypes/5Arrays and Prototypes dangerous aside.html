@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        Array.prototype.myCustomFeature = 'Cool';
+        var arr = ['john', 'jane', 'jim'];
+
+        for (var prop in arr) {
+            console.log(prop + ' :' + arr[prop]);
+        }//will print all properties of the array include those in the prototype (cool)
+
+        //safe, want print cool:
+        for (var i = 0; i < arr.length; i++) {
+            console.log(i + ' : ' + arr[i]);
+        }
+    </script>
+</body>
+</html>

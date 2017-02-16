@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        //function Constructors:
+        function Person(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        var john = new Person('jhon', 'Doe');
+        console.log(john);
+        
+        var jane = new Person('jane', 'Doe');
+        //this prototype property of the function IS NOT THE PROTOTYPE OF THE FUNCTION - is the prototype of each object created by the Person function
+        //(the prototype of each object is __proto__)
+        Person.prototype.GetFormalFullName = function () {
+            return this.firstName + ' ' + this.lastName;
+        }//adding to all objects created, that method and that method will live in 1 place (save memory).  
+
+        console.log(john.GetFormalFullName());
+        console.log(jane.GetFormalFullName());
+        //---------------------------------------------------------
+        //---adding to all string objects a method:
+        String.prototype.isLengthGreaterThan = function (limit) {
+            return this.length > limit;
+        }
+
+        var a ='john';
+        a.isLengthGreaterThan(2); //return true
+        //----adding to all number obejcts a method:
+        Number.prototype.isGreaterThan = function(number){
+            return this > number;
+        }
+
+        var num = 3;
+        console.log(num.isGreaterThan(2)); //return true
+    </script>
+</body>
+</html>

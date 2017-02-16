@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        function b() {
+            var myVar;
+            console.log(myVar); // will print undefiend
+        }
+        function a() {
+            var myVar=2;
+            console.log(this.myVar); // will print 2
+
+            console.log(myVar); // will print 2
+            b();
+        }
+        var myVar = 1;
+        a();
+        console.log(myVar); //will print 1
+        //the js first create a global execution context:
+        //the variable einviorment of the global context is the
+        //global object (window)
+        //myVar attached to window object and in the execution phase
+        //get the value 1
+        //then the function a called so new execution context is created
+        //and the new myVar attached to this context einviorment
+        //each myVar is unique and declared in different excecution context
+    </script>
+</body>
+</html>

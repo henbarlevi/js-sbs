@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+
+        function greet(whatToSay) {
+            return function (name) {
+                console.log(whatToSay + ' ' + name);
+            }
+        }
+        //1
+        greet('hello mr')('hen'); // hello mr hen
+        //2
+        var sayHi = greet('Hi');
+        sayHi('Tony') // Hi Tony
+        // even though the greet execution context is gone, sayHi execution context has a reference to its outer einviorment
+        //event that when it hits the console.log the greet function not in the execution stack anymore - this phenomenan  called closure
+        //(we dont need to worry that the outer einviorment is still running in order to get refrence to the variables)
+
+        //--------------------------------------------------
+        function buildFunctions() {
+            var arr = [];
+            for (var i = 0; i < 3; i++) {
+                arr.push(function () {
+                    console.log(i);
+                });
+            }
+            return arr;
+        }
+
+        var fs = buildFunctions(); //return arr of functions
+        fs[0](); //print 3
+        fs[1](); //print 3
+        fs[2](); //print 3
+
+        function buildFunctions2() {
+            var arr = [];
+            for (var i = 0; i < 3; i++) {
+
+                arr.push(
+                    (function (j) {
+                        return function () {
+                            console.log(j);
+                        }
+                    })(i) //imdiet function invocation
+                    );
+            }
+            return arr;
+        }
+        var fs = buildFunctions2();
+        fs[0](); //print 0
+        fs[1](); //print 1
+        fs[2](); //print 2
+    </script>
+</body>
+</html>

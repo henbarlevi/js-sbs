@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+<script>
+    b();
+    console.log(a);
+
+    var a = 'hello world'
+    function b() {
+        console.log('called b');
+    }
+    //תוצאה - יודפס called b ו undefiend
+    //before the js engine execute the code it first setup place in memory for the functions and variabels so he reconize them
+    //in this stage variables declare as - undefiend.
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        //functions are objects that have special properties
+        //a function have a code property that is invocable
+        //a function have a name property which is optinonal
+        //you can assign variables to function like any other object
+    
+        function greet() {
+            console.log('hi');
+        }
+        greet.language = 'english';
+        console.log(greet.language); // english
+        console.log(greet.name) // greet
+        greet(); //causing the code property to run.
+        //-----steatment and expressions--------
+        //function steatment - not returning a valu
+        //function expression - returning a value
+        function say(a) { //steatment - doesnt result a value
+            console.log(a);
+        }
+        //function expression
+        say2(); //error because variable get the value undefiend in the 
+        //first phase (putting functions and variables into memory)
+        //then in the execution phase when say2(); - say2 is still undefiend
+        var say2 = function (a) {
+            console.log(a);
+        }
+        //-----------------------------------------------------------
+        //immediately invoked functions:
+        var greetFuntcion = function (name) {
+            console.log('hi ' + name);
+        };
+        console.log(greetFuntcion); //printy the function
+
+        var greeting = function (name) {
+            console.log('hi ' + name);
+        }('john'); // (); immdeiately invoke the function
+        console.log(greeting) // print 'hi john', greeting contain a string and not a function because of - (); 
+        //IIFE - immediately invoked function expression
+        var firstName = 'max';
+        (function (name) {
+            console.log('hi' + name);
+        }(firstName)); // hi hen 
+    </script>
+</body>
+</html>

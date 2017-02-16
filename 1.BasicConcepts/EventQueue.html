@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        //the JS engine works sync(execute line ater line) but the entire broswer work async (multi thread) and have anoter
+        //enginges like: rendering enginge and http requests
+        //so when event happen (like click event) the event stack into the eventLoop/eventqueue
+        //only after the JS engine finish executing his current code (the execution stack is empty)
+        //then it looks in the eventquque and execute code relate to the event he listen to
+        function waitFiveSeconds() {
+            var ms = 5000 + new Date().getTime();
+            while (new Date() < ms) { } //5 sec delay
+            console.log('function delay finished');
+        }
+
+        function clickHandler() {
+            console.log('click event!');
+           // waitFiveSeconds(); //- try this
+        }
+
+        //listen for click event:
+        document.addEventListener('click', clickHandler);
+
+        waitFiveSeconds();
+        console.log('finished execution');
+    </script>
+</body>
+</html>

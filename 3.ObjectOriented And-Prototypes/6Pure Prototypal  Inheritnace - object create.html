@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+     <script>
+         var person = {
+             firstName: 'Default',
+             lastName: 'Default',
+             greet: function () {
+                 console.log('hello im' + this.firstName);
+             }
+         }
+         var bob = Object.create(person); //creating new empty object , that object __proto will set to Person
+         console.log(bob);
+          //bob.firstName; // 'default' - it will look for firstName in bob, will not find and then find it in its prototype property
+         //setting this objects  values:
+         bob.firstName = 'bob';
+         bob.lastName = 'marley';
+     </script>
+</body>
+</html>
